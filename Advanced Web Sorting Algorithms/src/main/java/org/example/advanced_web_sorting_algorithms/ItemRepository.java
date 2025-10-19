@@ -17,8 +17,8 @@ public class ItemRepository {
         return new ArrayList<>(store.values());
     }
 
-    public Optional<Item> findById(int id) {
-        return Optional.ofNullable(store.get(id));
+   // public Optional<Item> findById(int id) {
+       // return Optional.ofNullable(store.get(id));
     }
 
     public Item save(Item item) {
