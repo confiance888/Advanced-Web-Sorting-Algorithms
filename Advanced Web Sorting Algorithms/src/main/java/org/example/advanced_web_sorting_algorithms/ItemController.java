@@ -1,10 +1,10 @@
 package org.example.advanced_web_sorting_algorithms;
 
-import org.example.advancedsorting.model.Item;
+/*import org.example.advancedsorting.model.Item;
 import org.example.advancedsorting.repository.ItemRepository;
 import org.example.advancedsorting.service.SortingService;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.*;*/
 
 import java.util.*;
 import java.util.stream.Collectors;
@@ -21,12 +21,12 @@ public class ItemController {
         this.sortingService = sortingService;
     }
 
-    @GetMapping
+   // @GetMapping
     public List<Item> getAllItems() {
         return repository.findAll();
     }
 
-    @PostMapping
+    // @PostMapping
     public Item addItem(@RequestBody Item item) {
         return repository.save(item);
     }
