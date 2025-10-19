@@ -1,7 +1,8 @@
 package org.example.advanced_web_sorting_algorithms;
 
 import org.springframework.stereotype.Service;
-import java.util.*;
+import java.util.*
+
 
 @Service
 public class SortingService {
@@ -82,3 +83,4 @@ public class SortingService {
         }
     }
 }
+throw new illegalArgumentException("invalid")
