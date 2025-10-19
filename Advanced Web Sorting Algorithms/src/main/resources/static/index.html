@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Advanced Web Sorting Algorithms</title>
+</head>
+<body>
+<h2>Sorting Algorithms Demo</h2>
+
+<div>
+    <label>Enter Number: <input id="value" type="number"></label>
+    <button onclick="add()">Add</button>
+    <button onclick="clearAll()">Clear</button>
+</div>
+
+<div>
+    <label>Algorithm:
+        <select id="algo">
+            <option value="quick">Quick Sort</option>
+            <option value="bubble">Bubble Sort</option>
+            <option value="selection">Selection Sort</option>
+        </select>
+    </label>
+    <button onclick="sort()">Sort</button>
+</div>
+
+<pre id="output"></pre>
+
+<script>
+    async function add() {
+        const val = Number(document.getElementById("value").value);
+        await fetch("/api/items", {
+            method: "POST",
+            headers: {"Content-Type": "application/json"},
+            body: JSON.stringify({value: val})
+        });
+        load();
+    }
+
+    async function load() {
+        const res = await fetch("/api/items");
+        const data = await res.json();
+        document.getElementById("output").textContent = JSON.stringify(data, null, 2);
+    }
+
+    async function clearAll() {
+        await fetch("/api/items", {method: "DELETE"});
+        load();
+    }
+
+    async function sort() {
+        const algo = document.getElementById("algo").value;
+        const res = await fetch("/api/items/sort?algo=" + algo);
+        const data = await res.json();
+        document.getElementById("output").textContent = JSON.stringify(data, null, 2);
+    }
+
+    load();
+</script>
+</body>
+</html>
