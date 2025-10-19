@@ -21,13 +21,13 @@ public class ItemRepository {
        // return Optional.ofNullable(store.get(id));
     }
 
-    public Item save(Item item) {
-        if (item.getId() == 0) {
-            item.setId(idGen.getAndIncrement());
+    /* Item save(Item item) {
+       if (item.getId() == 0) {
+     item.setId(idGen.getAndIncrement());
         }
-        store.put(item.getId(), item);
+       store.put(item.getId(), item);
         return item;
-    }
+    }*/
 
     public boolean delete(int id) {
         return store.remove(id) != null;
